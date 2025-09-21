@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use App\Http\Controllers\SkillController;
 
 Route::get('/', function () {
     return Inertia::render('Welcome');
@@ -15,6 +16,7 @@ Route::get('greeting', function () {
     return 'Hello World';
 });
 
+// Test à supprimer
 Route::get('/posts', function () {
   $posts =
     [
@@ -23,6 +25,8 @@ Route::get('/posts', function () {
     ];
   return Inertia::render('Index', ['posts' => $posts]);
 })->name('posts.index');
+
+Route::get('/skills', [SkillController::class, 'index']);
 
 require __DIR__.'/settings.php';
 require __DIR__.'/auth.php';
