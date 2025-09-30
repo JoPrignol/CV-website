@@ -33,6 +33,7 @@ class CompanyResource extends Resource
         ->image()
         ->directory('company-logos')
         ->nullable(),
+        Forms\Components\TextInput::make('website_url')->url()->nullable(),
       ]);
         // return CompanyForm::configure($schema);
     }

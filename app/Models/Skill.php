@@ -7,7 +7,11 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Skill extends Model
 {
-  protected $fillable = ['name', 'level', 'skill_category_id'];
+  protected $fillable = [
+    'name',
+    'level',
+    'skill_category_id'
+  ];
 
   public function category(): BelongsTo
   {
