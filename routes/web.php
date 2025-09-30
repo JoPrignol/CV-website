@@ -3,6 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\SkillController;
+use App\Http\Controllers\ExperienceController;
+use App\Http\Controllers\SchoolController;
+use App\Http\Controllers\CourseController;
 
 Route::get('/', function () {
     return Inertia::render('Welcome');
@@ -27,6 +30,12 @@ Route::get('/posts', function () {
 })->name('posts.index');
 
 Route::get('/skills', [SkillController::class, 'index']);
+
+Route::get('/experiences', [ExperienceController::class, 'index']);
+
+Route::get('/schools', [SchoolController::class, 'index']);
+
+Route::get('/courses', [CourseController::class, 'index']);
 
 require __DIR__.'/settings.php';
 require __DIR__.'/auth.php';
