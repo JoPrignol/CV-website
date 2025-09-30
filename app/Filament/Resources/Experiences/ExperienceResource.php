@@ -38,7 +38,7 @@ class ExperienceResource extends Resource
               ->required(),
       ]);
     }
-    // TODO: créer les vues custom pour les expériences (en récupérant les infors des companies [voir dans le controlleur])
+    // TODO: créer les vues custom pour les expériences (en récupérant les infos des companies [voir dans le controlleur])
 
     public static function infolist(Schema $schema): Schema
     {

@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\SkillController;
+use App\Http\Controllers\ExperienceController;
 
 Route::get('/', function () {
     return Inertia::render('Welcome');
@@ -27,6 +28,8 @@ Route::get('/posts', function () {
 })->name('posts.index');
 
 Route::get('/skills', [SkillController::class, 'index']);
+
+Route::get('/experiences', [ExperienceController::class, 'index']);
 
 require __DIR__.'/settings.php';
 require __DIR__.'/auth.php';
