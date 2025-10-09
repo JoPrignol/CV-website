@@ -6,5 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Tag extends Model
 {
-    //
+  protected $fillable = [
+    'name',
+    'spotlight'
+  ];
+
+  public function projects()
+  {
+      return $this->belongsToMany(Project::class, 'project_tag_junction');
+  }
 }
