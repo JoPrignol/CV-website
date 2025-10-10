@@ -19,5 +19,4 @@ Procédé :
 
 TODO: 
 
-- Créer les réalisations avec un titre, une description, des images
-- Créer la page contact
+https://www.notion.so/28866f51609e806aa26af815b9887a6d?v=28866f51609e80bb8e1e000c3b782143&source=copy_link
