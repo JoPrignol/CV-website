@@ -22,7 +22,17 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'first_name',
+        'last_name',
+        'phone_number',
+        'bio',
+        'linkedin_url',
+        'github_url',
+        'position',
+        'profile_pic',
     ];
+
+    // TODO: update ressource filament + chercher comment rendre le user unique
 
     /**
      * The attributes that should be hidden for serialization.
