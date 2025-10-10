@@ -6,6 +6,7 @@ use App\Http\Controllers\SkillController;
 use App\Http\Controllers\ExperienceController;
 use App\Http\Controllers\SchoolController;
 use App\Http\Controllers\CourseController;
+use App\Http\Controllers\ProjectController;
 
 Route::get('/', function () {
     return Inertia::render('Welcome');
@@ -36,6 +37,8 @@ Route::get('/experiences', [ExperienceController::class, 'index']);
 Route::get('/schools', [SchoolController::class, 'index']);
 
 Route::get('/courses', [CourseController::class, 'index']);
+
+Route::get('/projects', [ProjectController::class, 'index'], 'index');
 
 require __DIR__.'/settings.php';
 require __DIR__.'/auth.php';
