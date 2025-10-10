@@ -18,21 +18,7 @@
 </template>
 
 <script setup lang="ts">
-  interface Tag {
-    id: number;
-    name: string;
-    spotlight: boolean;
-  }
-
-  interface Project {
-    id: number;
-    title: string;
-    description: string | null;
-    link: string | null;
-    main_image: string;
-    secondary_images: string[];
-    tags: Tag[];
-  }
+  import { Project } from '@/types/project';
 
   const props = defineProps<{
     projects: Project[];
