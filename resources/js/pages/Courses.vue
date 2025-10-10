@@ -8,20 +8,7 @@
   </div>
 </template>
 <script setup lang="ts">
-  interface School {
-    id: number;
-    name: string;
-    logo: string | null;
-    website: string | null;
-  }
-  interface Course {
-    id: number;
-    title: string;
-    description: string | null;
-    start_date: string | null;
-    end_date: string | null;
-    school: School;
-  }
+  import { Course } from '@/types/course';
 
   const props = defineProps<{
     courses: Course[];

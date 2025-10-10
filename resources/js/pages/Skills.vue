@@ -12,18 +12,8 @@
 </template>
 
 <script setup lang="ts">
-
-interface Skill {
-  id: number;
-  name: string;
-  level: number;
-}
-
-interface Category {
-  id: number;
-  name: string;
-  skills: Skill[];
-}
+import { defineProps } from 'vue';
+import { Category } from '@/types/category';
 
 const props = defineProps<{
   categories: Category[]

@@ -10,22 +10,8 @@
 </template>
 
 <script setup lang="ts">
-  interface Company {
-    id: number;
-    name: string;
-    logo: string;
-    website: string;
-  }
-
-  interface Experience {
-    id: number;
-    title: string;
-    description: string;
-    localisation: string;
-    start_date: string;
-    end_date: string | null;
-    company: Company;
-  }
+import { defineProps } from 'vue';
+import { Experience } from '@/types/experience';
 
   const props = defineProps<{
     experiences: Experience[];
