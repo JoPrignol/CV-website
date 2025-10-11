@@ -8,6 +8,7 @@ use App\Http\Controllers\SchoolController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\HomepageController;
+use App\Http\Controllers\ContactPageController;
 
 
 Route::get('/', [HomepageController::class, 'index'])->name('homepage');
@@ -29,6 +30,8 @@ Route::get('/experiences', [ExperienceController::class, 'index']);
 Route::get('/courses', [CourseController::class, 'index']);
 
 Route::get('/projects', [ProjectController::class, 'index'], 'index');
+
+Route::get('/contact', [ContactPageController::class, 'index'])->name('contact');
 
 require __DIR__.'/settings.php';
 require __DIR__.'/auth.php';
