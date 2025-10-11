@@ -15,6 +15,8 @@ use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
+use Filament\Forms;
+
 
 class UserResource extends Resource
 {
@@ -26,7 +28,25 @@ class UserResource extends Resource
 
     public static function form(Schema $schema): Schema
     {
-        return UserForm::configure($schema);
+        // return UserForm::configure($schema);
+        return $schema->schema([
+          Forms\Components\TextInput::make('name')->required(),
+          Forms\Components\TextInput::make('email')->required()->email(),
+          Forms\Components\TextInput::make('first_name')->required()->nullable(),
+          Forms\Components\TextInput::make('last_name')->required()->nullable(),
+          Forms\Components\TextInput::make('phone_number')->tel()->nullable(),
+          Forms\Components\Textarea::make('bio')->nullable(),
+          Forms\Components\TextInput::make('linkedin_url')->url()->nullable(),
+          Forms\Components\TextInput::make('github_url')->url()->nullable(),
+          Forms\Components\TextInput::make('position')->nullable(),
+          Forms\Components\FileUpload::make('profile_pic')->image()->nullable(),
+        ]);
+    }
+
+    // Fonction empêchant de créer plus d'un utilisateur
+    public static function canCreate(): bool
+    {
+        return \App\Models\User::count() === 0;
     }
 
     public static function infolist(Schema $schema): Schema

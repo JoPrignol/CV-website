@@ -32,8 +32,6 @@ class User extends Authenticatable
         'profile_pic',
     ];
 
-    // TODO: update ressource filament + chercher comment rendre le user unique
-
     /**
      * The attributes that should be hidden for serialization.
      *
