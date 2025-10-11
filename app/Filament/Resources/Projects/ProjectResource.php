@@ -91,5 +91,3 @@ class ProjectResource extends Resource
         ];
     }
 }
-
-// TODO: Créer la vue pour les projects + créer la route et tester l'affichage
