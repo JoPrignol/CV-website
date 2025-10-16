@@ -17,7 +17,7 @@ use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
 use Filament\Forms;
 use Filament\Tables;
-
+use Filament\Forms\Components\RichEditor;
 
 class CourseResource extends Resource
 {
@@ -31,7 +31,7 @@ class CourseResource extends Resource
     {
       return $schema->schema([
         Forms\Components\TextInput::make('title')->required(),
-        Forms\Components\Textarea::make('description'),
+        Forms\Components\RichEditor::make('description'),
         Forms\Components\DatePicker::make('start_date')->required(),
         Forms\Components\DatePicker::make('end_date'),
         Forms\Components\Select::make('school_id')

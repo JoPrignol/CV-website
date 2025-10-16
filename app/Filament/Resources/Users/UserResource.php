@@ -16,6 +16,10 @@ use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
 use Filament\Forms;
+use Filament\Tables;
+use Filament\Forms\Form;
+use Filament\Forms\Components;
+use Filament\Forms\Components\RichEditor;
 
 
 class UserResource extends Resource
@@ -35,7 +39,7 @@ class UserResource extends Resource
           Forms\Components\TextInput::make('first_name')->required()->nullable(),
           Forms\Components\TextInput::make('last_name')->required()->nullable(),
           Forms\Components\TextInput::make('phone_number')->tel()->nullable(),
-          Forms\Components\Textarea::make('bio')->nullable(),
+          Forms\Components\RichEditor::make('bio')->nullable(),
           Forms\Components\TextInput::make('linkedin_url')->url()->nullable(),
           Forms\Components\TextInput::make('github_url')->url()->nullable(),
           Forms\Components\TextInput::make('position')->nullable(),

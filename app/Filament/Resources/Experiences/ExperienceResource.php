@@ -18,6 +18,7 @@ use Filament\Tables\Table;
 use Filament\Forms;
 use Filament\Tables;
 use Filament\Forms\Form;
+use Filament\Forms\Components\RichEditor;
 
 class ExperienceResource extends Resource
 {
@@ -31,7 +32,7 @@ class ExperienceResource extends Resource
           Forms\Components\DatePicker::make('start_date')->required(),
           Forms\Components\DatePicker::make('end_date'),
           Forms\Components\TextInput::make('position')->required(),
-          Forms\Components\Textarea::make('description'),
+          Forms\Components\RichEditor::make('description'),
           Forms\Components\TextInput::make('localisation'),
           Forms\Components\Select::make('company_id')
               ->relationship('company', 'name')
