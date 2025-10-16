@@ -20,6 +20,7 @@ use Filament\Tables;
 use Filament\Forms\Form;
 use Filament\Forms\Components;
 use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\RichEditor;
 
 
 class ProjectResource extends Resource
@@ -37,7 +38,7 @@ class ProjectResource extends Resource
           Forms\Components\TextInput::make('name')
             ->required(),
 
-          Forms\Components\Textarea::make('description')
+          Forms\Components\RichEditor::make('description')
             ->nullable(),
 
           Forms\Components\TextInput::make('url')
