@@ -9,6 +9,7 @@ use App\Http\Controllers\CourseController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\HomepageController;
 use App\Http\Controllers\ContactPageController;
+use App\Http\Controllers\PassionController;
 
 
 Route::get('/', [HomepageController::class, 'index'])->name('homepage');
@@ -32,6 +33,8 @@ Route::get('/courses', [CourseController::class, 'index']);
 Route::get('/projects', [ProjectController::class, 'index'], 'index');
 
 Route::get('/contact', [ContactPageController::class, 'index'])->name('contact');
+
+Route::get('/passions', [PassionController::class, 'index'])->name('passions');
 
 require __DIR__.'/settings.php';
 require __DIR__.'/auth.php';
