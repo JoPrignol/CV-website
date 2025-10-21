@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('skills', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->json('name');
             $table->unsignedTinyInteger('level')->default(1);
             $table->foreignId('skill_category_id')->constrained()->cascadeOnDelete();
             $table->timestamps();

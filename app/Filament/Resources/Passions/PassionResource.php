@@ -17,9 +17,13 @@ use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
 use Filament\Forms;
 use Filament\Forms\Components\RichEditor;
+use LaraZeus\SpatieTranslatable\Resources\Concerns\Translatable;
+
 
 class PassionResource extends Resource
 {
+    use Translatable;
+
     protected static ?string $model = Passion::class;
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;

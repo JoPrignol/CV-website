@@ -18,9 +18,13 @@ use Filament\Tables\Table;
 use Filament\Forms;
 use Filament\Tables;
 use Filament\Forms\Form;
+use LaraZeus\SpatieTranslatable\Resources\Concerns\Translatable;
+
 
 class SchoolResource extends Resource
 {
+    use Translatable;
+
     protected static ?string $model = School::class;
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;

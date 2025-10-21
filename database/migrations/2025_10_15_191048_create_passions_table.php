@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('passions', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->text('description')->nullable();
+            $table->json('name');
+            $table->json('description')->nullable();
             $table->string('image')->nullable();
             $table->timestamps();
         });

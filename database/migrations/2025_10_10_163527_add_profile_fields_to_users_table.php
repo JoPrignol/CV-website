@@ -15,10 +15,10 @@ return new class extends Migration
             $table->string('first_name')->nullable();
             $table->string('last_name')->nullable();
             $table->string('phone_number')->nullable();
-            $table->text('bio')->nullable();
+            $table->json('bio')->nullable();
             $table->string('linkedin_url')->nullable();
             $table->string('github_url')->nullable();
-            $table->string('position')->nullable();
+            $table->json('position')->nullable();
             $table->string('profile_pic')->nullable();
         });
     }

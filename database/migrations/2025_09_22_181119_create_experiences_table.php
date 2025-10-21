@@ -15,9 +15,9 @@ return new class extends Migration
             $table->id();
             $table->date('start_date');
             $table->date('end_date')->nullable();
-            $table->string('position');
-            $table->text('description')->nullable();
-            $table->string('location')->nullable();
+            $table->json('position');
+            $table->json('description')->nullable();
+            $table->json('location')->nullable();
             $table->foreignId('company_id')->constrained()->cascadeOnDelete();
             $table->timestamps();
         });

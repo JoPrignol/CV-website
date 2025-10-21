@@ -7,11 +7,12 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
+use Spatie\Translatable\HasTranslations;
 
 class User extends Authenticatable
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
-    use HasFactory, Notifiable, TwoFactorAuthenticatable;
+    use HasFactory, Notifiable, TwoFactorAuthenticatable, HasTranslations;
 
     /**
      * The attributes that are mass assignable.
@@ -30,6 +31,24 @@ class User extends Authenticatable
         'github_url',
         'position',
         'profile_pic',
+    ];
+
+    public array $translatable = [
+        'bio',
+        'position',
+    ];
+
+    protected $casts = [
+        'name' => 'string',
+        'email' => 'string',
+        'first_name' => 'string',
+        'last_name' => 'string',
+        'phone_number' => 'string',
+        'bio' => 'array',
+        'linkedin_url' => 'string',
+        'github_url' => 'string',
+        'position' => 'array',
+        'profile_pic' => 'string',
     ];
 
     /**
