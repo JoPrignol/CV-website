@@ -1,20 +1,24 @@
-Procédé : 
+composer install
+npm install
+cp .env.example .env
+php artisan key:generate
+php artisan migrate
+npm run dev
+php artisan serve
 
-1) php artisan make:model NomDuModelAuSingulier -m
+Créer un admin en DB : 
 
-2) Remplir le fichier de migration
+php artisan tinker
 
-3) php artisan migrate
+App\Models\User::create([
+  'name' => 'John Doe',
+  'email' => 'john@example.com',
+  'password' => bcrypt('secret'),
+]);
 
-4) Définition des relations dans les modeles
+(ou : php artisan make:filament-user)
 
-5) php artisan make:filament-resource NomDeLaRessourceAuSingulier
-
-6) Définir le contenu du formulaire et son affichage
-
-7) Créer le contrôlleur
-
-8) Créer la vue Inertia
+Se connecter sur 'http://localhost:8000/admin'
 
 
 TODO: 
