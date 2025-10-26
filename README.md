@@ -8,9 +8,7 @@ php artisan key:generate
 
 php artisan migrate
 
-npm run dev
-
-php artisan serve
+npm run dev + php artisan serve (ou composer run dev)
 
 
 Créer un admin en DB : 
@@ -20,7 +18,7 @@ php artisan tinker
 App\Models\User::create([
   'name' => 'John Doe',
   'email' => 'john@example.com',
-  'password' => bcrypt('secret'),
+  'password' => bcrypt('password'),
 ]);
 
 (ou : php artisan make:filament-user)
