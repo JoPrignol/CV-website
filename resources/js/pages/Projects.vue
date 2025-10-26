@@ -18,6 +18,8 @@
   </div>
 </template>
 
+<!-- TODO: mettre en place la traduction sur toutes les pages -->
+
 <script setup lang="ts">
   import LanguageSwitcher from '@/components/custom/LanguageSwitcher.vue';
 import { Project } from '@/types/project';
