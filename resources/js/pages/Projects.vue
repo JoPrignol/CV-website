@@ -22,5 +22,6 @@
 
   const props = defineProps<{
     projects: Project[];
+    locale: string;
   }>();
 </script>

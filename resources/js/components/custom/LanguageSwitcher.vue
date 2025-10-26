@@ -21,7 +21,8 @@ const locales = ['fr', 'en', 'de']
 const currentLocale = ref(document.documentElement.lang || 'fr')
 
 const switchLanguage = async (locale: any) => {
-  await fetch(`/lang/${locale}`)
-  window.location.reload()
+  await fetch(`/lang/${locale}`);
+  window.dispatchEvent(new CustomEvent('locale-changed', { detail: { locale } }));
+  window.location.reload();
 }
 </script>

@@ -15,5 +15,6 @@ import { Experience } from '@/types/experience';
 
   const props = defineProps<{
     experiences: Experience[];
+    locale: string;
   }>();
 </script>

@@ -9,6 +9,9 @@ class PassionController extends Controller
 {
   public function index(){
     $passions = Passion::all();
-    return Inertia::render('Passions', ['passions' => $passions]);
+    return Inertia::render('Passions', [
+      'passions' => $passions,
+      'locale' => request()->cookie('locale', 'fr'),
+    ]);
   }
 }

@@ -12,6 +12,7 @@ defineProps<{
     github_url: string;
     linkedin_url: string;
     phone_number: string;
+    locale: string;
   };
 }>();
 </script>

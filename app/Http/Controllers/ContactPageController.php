@@ -9,6 +9,9 @@ class ContactPageController extends Controller
 {
   public function index(){
     $userContact = User::select('email', 'github_url', 'linkedin_url', 'phone_number')->first();
-    return Inertia::render('Contact', ['userContact' => $userContact]);
+    return Inertia::render('Contact', [
+      'userContact' => $userContact,
+      'locale' => request()->cookie('locale', 'fr'),
+    ]);
   }
 }
