@@ -28,6 +28,7 @@ class HomepageController extends Controller
             'projects' => $projects,
             'experiences' => $experiences,
             'courses' => $courses,
+            'locale' => request()->cookie('locale', 'fr'),
         ]);
     }
 }

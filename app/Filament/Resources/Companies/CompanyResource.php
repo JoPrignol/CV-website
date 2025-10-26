@@ -18,9 +18,12 @@ use Filament\Tables\Table;
 use Filament\Forms;
 use Filament\Tables;
 use Filament\Forms\Form;
+use LaraZeus\SpatieTranslatable\Resources\Concerns\Translatable;
 
 class CompanyResource extends Resource
 {
+    use Translatable;
+
     protected static ?string $model = Company::class;
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
@@ -28,14 +31,14 @@ class CompanyResource extends Resource
     public static function form(Schema $schema): Schema
     {
       return $schema->schema([
-        Forms\Components\TextInput::make('name')->required(),
+        Forms\Components\TextInput::make('name')
+          ->required(),
         Forms\Components\FileUpload::make('logo')
-        ->image()
-        ->directory('company-logos')
-        ->nullable(),
+          ->image()
+          ->directory('company-logos')
+          ->nullable(),
         Forms\Components\TextInput::make('website_url')->url()->nullable(),
       ]);
-        // return CompanyForm::configure($schema);
     }
 
     public static function infolist(Schema $schema): Schema

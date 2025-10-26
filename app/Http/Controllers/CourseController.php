@@ -9,6 +9,9 @@ class CourseController extends Controller
 {
   public function index(){
     $courses = Course::with('school')->get();
-    return Inertia::render('Courses', ['courses' => $courses]);
+    return Inertia::render('Courses', [
+      'courses' => $courses,
+      'locale' => request()->cookie('locale', 'fr'),
+    ]);
   }
 }

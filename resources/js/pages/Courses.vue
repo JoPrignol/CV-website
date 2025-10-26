@@ -12,5 +12,6 @@
 
   const props = defineProps<{
     courses: Course[];
+    locale: string;
   }>();
 </script>

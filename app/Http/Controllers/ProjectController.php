@@ -9,6 +9,9 @@ class ProjectController extends Controller
 {
   public function index(){
     $projects = Project::with('tags')->get();
-    return Inertia::render('Projects', ['projects' => $projects]);
+    return Inertia::render('Projects', [
+      'projects' => $projects,
+      'locale' => request()->cookie('locale', 'fr'),
+    ]);
   }
 }

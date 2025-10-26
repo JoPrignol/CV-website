@@ -19,9 +19,13 @@ use Filament\Forms;
 use Filament\Tables;
 use Filament\Forms\Form;
 use Filament\Forms\Components\RichEditor;
+use LaraZeus\SpatieTranslatable\Resources\Concerns\Translatable;
+
 
 class ExperienceResource extends Resource
 {
+    use Translatable;
+
     protected static ?string $model = Experience::class;
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;

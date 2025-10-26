@@ -27,5 +27,7 @@ const props = defineProps<{
   projects: Project[];
   experiences: Experience[];
   courses: Course[];
+  locale: string;
 }>();
+
 </script>

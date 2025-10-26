@@ -4,10 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Spatie\Translatable\HasTranslations;
 
 class Experience extends Model
 {
   use HasFactory;
+  use HasTranslations;
 
   // Permet de définir les champs pouvant être remplis en masse
   // (les champs non inclus ici ne pourront pas être remplis via une assignation de masse)
@@ -18,6 +20,20 @@ class Experience extends Model
     'description',
     'location',
     'company_id'
+  ];
+
+  public array $translatable = [
+    'position',
+    'description',
+    'location',
+  ];
+
+  protected $casts = [
+    'start_date' => 'date',
+    'end_date' => 'date',
+    'position' => 'array',
+    'description' => 'array',
+    'location' => 'array',
   ];
 
   // Définir la relation avec le modèle Company

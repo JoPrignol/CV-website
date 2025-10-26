@@ -21,10 +21,12 @@ use Filament\Forms\Form;
 use Filament\Forms\Components;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\RichEditor;
-
+use LaraZeus\SpatieTranslatable\Resources\Concerns\Translatable;
 
 class ProjectResource extends Resource
 {
+    use Translatable;
+
     protected static ?string $model = Project::class;
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;

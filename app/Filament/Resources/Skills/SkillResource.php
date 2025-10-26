@@ -17,10 +17,12 @@ use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Select;
-
+use LaraZeus\SpatieTranslatable\Resources\Concerns\Translatable;
 
 class SkillResource extends Resource
 {
+    use Translatable;
+
     protected static ?string $model = Skill::class;
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;

@@ -16,7 +16,8 @@ import { defineProps } from 'vue';
 import { Category } from '@/types/category';
 
 const props = defineProps<{
-  categories: Category[]
+  categories: Category[];
+  locale: string;
 }>();
 
 function displaySkillLevel(level: number){

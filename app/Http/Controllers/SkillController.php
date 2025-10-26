@@ -10,6 +10,9 @@ class SkillController extends Controller
 {
   public function index(){
     $categories = SkillCategory::with('skills')->get();
-    return Inertia::render('Skills', ['categories' => $categories]);
+    return Inertia::render('Skills', [
+      'categories' => $categories,
+      'locale' => request()->cookie('locale', 'fr'),
+    ]);
   }
 }

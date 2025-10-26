@@ -18,9 +18,13 @@ use Filament\Tables\Table;
 use Filament\Forms;
 use Filament\Tables;
 use Filament\Forms\Components\RichEditor;
+use LaraZeus\SpatieTranslatable\Resources\Concerns\Translatable;
+
 
 class CourseResource extends Resource
 {
+    use Translatable;
+
     protected static ?string $model = Course::class;
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;

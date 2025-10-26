@@ -9,6 +9,9 @@ class ExperienceController extends Controller
 {
   public function index(){
     $experiences = Experience::with('company')->get();
-    return Inertia::render('Experiences', ['experiences' => $experiences]);
+    return Inertia::render('Experiences', [
+      'experiences' => $experiences,
+      'locale' => request()->cookie('locale', 'fr'),
+    ]);
   }
 }
