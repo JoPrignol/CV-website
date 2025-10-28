@@ -37,7 +37,7 @@ class ExperienceResource extends Resource
           Forms\Components\DatePicker::make('end_date'),
           Forms\Components\TextInput::make('position')->required(),
           Forms\Components\RichEditor::make('description'),
-          Forms\Components\TextInput::make('localisation'),
+          Forms\Components\TextInput::make('location'),
           Forms\Components\Select::make('company_id')
               ->relationship('company', 'name')
               ->required(),
@@ -56,7 +56,7 @@ class ExperienceResource extends Resource
           Tables\Columns\TextColumn::make('company.name'),
           Tables\Columns\TextColumn::make('start_date')->date(),
           Tables\Columns\TextColumn::make('end_date')->date(),
-          Tables\Columns\TextColumn::make('localisation'),
+          Tables\Columns\TextColumn::make('location'),
       ]);
     }
 
