@@ -1,4 +1,5 @@
 <template>
+  <LanguageSwitcher />
   <div>{{ userContact.email }}</div>
   <div>{{ userContact.github_url }}</div>
   <div>{{ userContact.linkedin_url }}</div>
@@ -6,6 +7,8 @@
 </template>
 
 <script setup lang="ts">
+import LanguageSwitcher from '@/components/custom/LanguageSwitcher.vue';
+
 defineProps<{
   userContact: {
     email: string;
