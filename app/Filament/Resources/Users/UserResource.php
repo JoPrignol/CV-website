@@ -45,7 +45,7 @@ class UserResource extends Resource
           Forms\Components\TextInput::make('linkedin_url')->url()->nullable(),
           Forms\Components\TextInput::make('github_url')->url()->nullable(),
           Forms\Components\TextInput::make('position')->nullable(),
-          Forms\Components\FileUpload::make('profile_pic')->image()->nullable(),
+          Forms\Components\FileUpload::make('profile_pic')->disk('public')->image()->nullable(),
         ]);
     }
 
