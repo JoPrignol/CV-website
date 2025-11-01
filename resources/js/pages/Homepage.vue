@@ -1,8 +1,9 @@
 <template>
+  <Navbar :locale="locale"/>
   <div v-for="user in [props.user]" :key="user.id">
     <h1 class="text-3xl font-bold mb-4">Welcome to {{ user.first_name }}'s Portfolio</h1>
-    <p class="mb-2">Position: {{ user.position }}</p>
-    <p class="mb-2">Bio: {{ user.bio }}</p>
+    <p class="mb-2">Position: {{ user.position[locale] }}</p>
+    <p class="mb-2">Bio: {{ user.bio[locale] }}</p>
     <p class="mb-2">Email: {{ user.email }}</p>
     <p class="mb-2">Phone: {{ user.phone_number }}</p>
     <div class="mb-4">
@@ -20,6 +21,7 @@ import { Experience } from '@/types/experience';
 import { Project } from '@/types/project';
 import { User } from '@/types/user';
 import { Skill } from '@/types/skill';
+import Navbar from '@/components/navbar.vue';
 
 const props = defineProps<{
   user: User;

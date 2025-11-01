@@ -1,5 +1,5 @@
 <template>
-  <LanguageSwitcher />
+  <Navbar />
   <div v-for="project in projects" :key="project.id" class="mb-6">
     <h2 v-if="project.name" class="text-xl font-bold">{{ project.name[locale] }}</h2>
     <p v-if="project.description" v-html="project.description[locale]"></p>
@@ -19,7 +19,7 @@
 </template>
 
 <script setup lang="ts">
-  import LanguageSwitcher from '@/components/custom/LanguageSwitcher.vue';
+import Navbar from '@/components/navbar.vue';
 import { Project } from '@/types/project';
 
   const props = defineProps<{

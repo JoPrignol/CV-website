@@ -5,8 +5,8 @@
       :key="l"
       @click="switchLanguage(l)"
       :class="[
-        'px-3 py-1 rounded',
-        currentLocale === l ? 'bg-emerald-600 text-white' : 'bg-gray-200 text-gray-800'
+        'px-3 py-1 font-bold',
+        currentLocale === l ? 'bg-gray-500 text-white' : 'bg-gray-200 text-gray-800'
       ]"
     >
       {{ l.toUpperCase() }}
