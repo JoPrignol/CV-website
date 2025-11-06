@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import AppLayout from '@/layouts/app/AppSidebarLayout.vue';
 import type { BreadcrumbItemType } from '@/types';
+import Navbar from '@/components/navbar.vue';
 
 interface Props {
     breadcrumbs?: BreadcrumbItemType[];
@@ -12,7 +13,8 @@ withDefaults(defineProps<Props>(), {
 </script>
 
 <template>
-    <AppLayout :breadcrumbs="breadcrumbs">
+    <!-- <AppLayout :breadcrumbs="breadcrumbs"> -->
+        <Navbar :locale="locale"/>
         <slot />
-    </AppLayout>
+
 </template>

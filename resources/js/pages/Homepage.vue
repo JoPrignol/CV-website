@@ -1,5 +1,5 @@
 <template>
-  <Navbar :locale="locale"/>
+  <!-- <Navbar :locale="locale"/> -->
   <div
     v-for="user in [props.user]"
     :key="user.id"
