@@ -1,20 +1,42 @@
 <template>
-  <LanguageSwitcher />
-  <div v-for="exp in experiences" :key="exp.id">
-    <h2>
-      <span v-if="exp.position">
-        {{ exp.position[locale] }}
-      </span>
-      <span v-if="exp.company">
-        ({{ exp.company.name[locale] }})
-      </span>
-    </h2>
-    <p v-if="exp.location">{{ exp.location[locale] }}</p>
-    <p v-if="exp.end_date">{{ formatDate(exp.start_date) }} - {{ formatDate(exp.end_date) }}</p>
-    <p v-else>Depuis {{ formatDate(exp.start_date) }}</p>
-    <p v-html="exp.description[locale]" />
-    <img v-if="exp.company.logo" :src="exp.company.logo" :alt="exp.company.name" class="w-[50px]"/>
-  </div>
+  <div class="flex flex-col gap-12 items-center justify-center">
+    <div
+      v-for="exp in experiences" :key="exp.id"
+      class="w-1/2 border border-white rounded-md p-8"
+    >
+      <div class="flex flex-row gap-4">
+        <img
+          v-if="exp.company.logo"
+          :src="exp.company.logo"
+          :alt="exp.company.name"
+          class="w-[50px] aspect-square"
+        />
+        <div>
+          <h2 class="text-3xl font-bold">
+            <span v-if="exp.position">
+              {{ exp.position[locale] }}
+            </span>
+            <span> - </span>
+            <span v-if="exp.company">
+              {{ exp.company.name[locale] }}
+            </span>
+          </h2>
+          <p class="text-xl">
+            <span v-if="exp.end_date">{{ formatDate(exp.start_date) }} - {{ formatDate(exp.end_date) }}</span>
+            <span v-else>{{fromWordByLocale[locale]}} {{ formatDate(exp.start_date) }}</span>
+          </p>
+          <p v-if="exp.location">{{atWordByLocale[locale]}} {{ exp.location[locale] }}</p>
+        </div>
+      </div>
+
+      <p
+        v-html="exp.description[locale]"
+        class="mt-4 text-justify"
+      />
+
+    </div>
+    </div>
+
 </template>
 
 <script setup lang="ts">
@@ -25,8 +47,20 @@ import dayjs from 'dayjs';
 
   const props = defineProps<{
     experiences: Experience[];
-    locale: string;
+    locale: 'fr' | 'en' | 'de';
   }>();
+
+  const fromWordByLocale = {
+    fr: 'Depuis',
+    en: 'Since',
+    de: 'Seit'
+  } as const;
+
+  const atWordByLocale = {
+    fr: 'à',
+    en: 'in',
+    de: 'im'
+  }
 
   const formatDate = (dateString: string): string => {
     return dayjs(dateString).format('DD/MM/YYYY');

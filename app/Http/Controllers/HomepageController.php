@@ -8,6 +8,7 @@ use App\Models\SkillCategory;
 use App\Models\Project;
 use App\Models\Experience;
 use App\Models\Course;
+use Illuminate\Support\Facades\Storage;
 
 
 class HomepageController extends Controller
@@ -20,6 +21,10 @@ class HomepageController extends Controller
         $projects = Project::with('tags')->get();
         $experiences = Experience::with('company')->get();
         $courses = Course::with('school')->get();
+
+        $user->profile_pic_url = $user->profile_pic
+        ? Storage::url($user->profile_pic)
+        : null;
 
         // Renvoi de toutes les données à la vue Inertia
         return Inertia::render('Homepage', [
