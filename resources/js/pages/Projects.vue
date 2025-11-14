@@ -19,7 +19,7 @@
 </template>
 
 <script setup lang="ts">
-import Navbar from '@/components/navbar.vue';
+import Navbar from '@/components/custom/Navbar.vue';
 import { Project } from '@/types/project';
 
   const props = defineProps<{

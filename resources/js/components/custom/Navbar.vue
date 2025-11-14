@@ -12,7 +12,7 @@
 </template>
 
 <script setup lang="ts">
-import LanguageSwitcher from './custom/LanguageSwitcher.vue';
+import LanguageSwitcher from './LanguageSwitcher.vue';
 import { usePage } from '@inertiajs/vue3';
 
 const props = defineProps<{
