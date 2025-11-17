@@ -5,8 +5,21 @@
       class="w-1/2 border border-white rounded-md p-8"
     >
       <div class="flex flex-row gap-4">
+        <a
+          v-if="exp.company.website_url"
+          :href="exp.company.website_url"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img
+            v-if="exp.company.logo"
+            :src="exp.company.logo"
+            :alt="exp.company.name"
+            class="w-[50px] aspect-square"
+          />
+        </a>
         <img
-          v-if="exp.company.logo"
+          v-else
           :src="exp.company.logo"
           :alt="exp.company.name"
           class="w-[50px] aspect-square"
@@ -35,20 +48,21 @@
       />
 
     </div>
-    </div>
+  </div>
 
 </template>
 
 <script setup lang="ts">
 import { defineProps } from 'vue';
 import { Experience } from '@/types/experience';
-import LanguageSwitcher from '@/components/custom/LanguageSwitcher.vue';
 import dayjs from 'dayjs';
 
   const props = defineProps<{
     experiences: Experience[];
     locale: 'fr' | 'en' | 'de';
   }>();
+
+  console.log(props.experiences)
 
   const fromWordByLocale = {
     fr: 'Depuis',
