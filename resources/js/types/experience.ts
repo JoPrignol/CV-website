@@ -2,7 +2,7 @@ import { Company } from './company';
 
 export interface Experience {
     id: number;
-    title: string;
+    position: string;
     description: string;
     location: string;
     start_date: string;
