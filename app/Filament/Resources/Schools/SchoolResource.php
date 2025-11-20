@@ -36,8 +36,8 @@ class SchoolResource extends Resource
       return $schema->schema([
         Forms\Components\TextInput::make('name')->required(),
         Forms\Components\FileUpload::make('logo')
+        ->disk('public')
         ->image()
-        ->directory('school-logos')
         ->nullable(),
         Forms\Components\TextInput::make('location'),
         Forms\Components\TextInput::make('website_url')->url()->nullable(),

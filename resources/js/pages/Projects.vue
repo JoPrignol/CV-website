@@ -4,9 +4,9 @@
     <p v-if="project.description" v-html="project.description[locale]"></p>
     <a v-if="project.url" :href="project.url" target="_blank" class="text-blue-500 underline">{{projectLink}}</a>
     <div class="my-2">
-      <img :src="project.main_image" :alt="project.title" class="w-[200px] mb-2"/>
-      <div v-if="project.secondary_images.length" class="flex space-x-2 overflow-x-auto">
-        <img v-for="(image, index) in project.secondary_images" :key="index" :src="image" :alt="`${project.title} image ${index + 1}`" class="w-[100px]"/>
+      <img :src="project.main_image_url" :alt="project.title" class="w-[200px] mb-2"/>
+      <div v-if="project.secondary_images_urls" class="flex space-x-2 overflow-x-auto">
+        <img v-for="(image, index) in project.secondary_images_urls" :key="index" :src="image" :alt="`${project.title} image ${index + 1}`" class="w-[100px]"/>
       </div>
     </div>
     <div v-if="project.tags.length" class="mt-2">
@@ -18,14 +18,12 @@
 </template>
 
 <script setup lang="ts">
-import Navbar from '@/components/custom/Navbar.vue';
 import { Project } from '@/types/project';
 
   const props = defineProps<{
     projects: Project[];
     locale: string;
   }>();
-console.log(props.projects);
   let projectLink = setProjectLinkLanguage(props.locale);
 
   function setProjectLinkLanguage(locale: string): string {
@@ -40,4 +38,6 @@ console.log(props.projects);
         return 'Learn more';
     }
   }
+
+  console.log(props.projects);
 </script>

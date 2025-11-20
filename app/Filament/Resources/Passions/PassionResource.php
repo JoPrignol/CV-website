@@ -36,7 +36,7 @@ class PassionResource extends Resource
         return $schema->schema([
           Forms\Components\TextInput::make('name')->required(),
           Forms\Components\RichEditor::make('description')->nullable(),
-          Forms\Components\FileUpload::make('image')->image()->nullable(),
+          Forms\Components\FileUpload::make('image')->disk('public')->image()->nullable(),
         ]);
     }
 

@@ -12,15 +12,15 @@
           rel="noopener noreferrer"
         >
           <img
-            v-if="course.school.logo"
-            :src="course.school.logo"
+            v-if="course.school.logo_url"
+            :src="course.school.logo_url"
             :alt="course.school.name"
             class="w-[50px] aspect-square"
           />
         </a>
         <img
           v-else
-          :src="course.school.logo"
+          :src="course.school.logo_url"
           :alt="course.school.name"
           class="w-[50px] aspect-square"
         />

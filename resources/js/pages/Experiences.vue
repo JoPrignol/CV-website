@@ -12,15 +12,15 @@
           rel="noopener noreferrer"
         >
           <img
-            v-if="exp.company.logo"
-            :src="exp.company.logo"
+            v-if="exp.company.logo_url"
+            :src="exp.company.logo_url"
             :alt="exp.company.name"
             class="w-[50px] aspect-square"
           />
         </a>
         <img
           v-else
-          :src="exp.company.logo"
+          :src="exp.company.logo_url"
           :alt="exp.company.name"
           class="w-[50px] aspect-square"
         />
@@ -57,12 +57,15 @@ import { defineProps } from 'vue';
 import { Experience } from '@/types/experience';
 import dayjs from 'dayjs';
 
-  const props = defineProps<{
-    experiences: Experience[];
-    locale: 'fr' | 'en' | 'de';
-  }>();
+
+const props = defineProps<{
+  experiences: Experience[];
+  locale: 'fr' | 'en' | 'de';
+}>();
 
   console.log(props.experiences)
+  console.log(props.experiences.map(e => e.company?.logo_url));
+
 
   const fromWordByLocale = {
     fr: 'Depuis',
