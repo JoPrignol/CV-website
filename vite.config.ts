@@ -24,4 +24,11 @@ export default defineConfig({
             },
         }),
     ],
+    server: {
+        host: '0.0.0.0',  // Accepte les connexions depuis n'importe quelle adresse
+        hmr: {
+            host: 'localhost',  // ou '0.0.0.0' si nécessaire
+        },
+    },
+
 });
