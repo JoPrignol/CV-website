@@ -63,10 +63,6 @@ const props = defineProps<{
   locale: 'fr' | 'en' | 'de';
 }>();
 
-  console.log(props.experiences)
-  console.log(props.experiences.map(e => e.company?.logo_url));
-
-
   const fromWordByLocale = {
     fr: 'Depuis',
     en: 'Since',

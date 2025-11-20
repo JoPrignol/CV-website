@@ -38,6 +38,4 @@ import { Project } from '@/types/project';
         return 'Learn more';
     }
   }
-
-  console.log(props.projects);
 </script>
