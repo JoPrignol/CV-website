@@ -34,6 +34,7 @@ class CompanyResource extends Resource
         Forms\Components\TextInput::make('name')
           ->required(),
         Forms\Components\FileUpload::make('logo')
+          ->disk('public')
           ->image()
           ->directory('company-logos')
           ->nullable(),

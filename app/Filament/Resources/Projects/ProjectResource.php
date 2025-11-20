@@ -48,16 +48,15 @@ class ProjectResource extends Resource
             ->nullable(),
 
           Forms\Components\FileUpload::make('main_image')
-            ->image()
-            ->directory('projects/main_image'),
+            ->disk('public')
+            ->image(),
             // ->required(),
 
           Forms\Components\FileUpload::make('secondary_images')
+            ->disk('public')
             ->image()
             ->multiple()
-            ->maxFiles(10)
-            ->directory('projects/secondary_images'),
-
+            ->maxFiles(10),
           Forms\Components\Select::make('tags')
             ->multiple()
             ->relationship('tags', 'name')

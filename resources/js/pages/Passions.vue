@@ -4,7 +4,7 @@
   <div v-for="passion in passions" :key="passion.id" class="mb-6">
     <h2 class="text-xl font-bold mb-2">{{ passion.name[locale] }}</h2>
     <p v-html="passion.description[locale]" class="mb-2"/>
-    <img v-if="passion.image" :src="passion.image" :alt="passion.name" class="w-full h-auto rounded" />
+    <img v-if="passion.image_url" :src="passion.image_url" :alt="passion.name" class="w-full h-auto rounded" />
   </div>
 </template>
 
