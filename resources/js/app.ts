@@ -4,6 +4,7 @@ import { createInertiaApp } from '@inertiajs/vue3';
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
 import type { DefineComponent } from 'vue';
 import { createApp, h } from 'vue';
+import { createPinia } from 'pinia';
 // import { initializeTheme } from './composables/useAppearance';
 import AppLayout from './Layouts/AppLayout.vue';
 
@@ -19,8 +20,10 @@ createInertiaApp({
       return page;
     }),
     setup({ el, App, props, plugin }) {
+        const pinia = createPinia();
         createApp({ render: () => h(App, props) })
             .use(plugin)
+            .use(pinia)
             .mount(el);
     },
     progress: {

@@ -16,12 +16,17 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
+import { useLocaleStore } from '@/stores/locale';
+
+const localeStore = useLocaleStore();
 
 const locales = ['fr', 'en', 'de']
 const currentLocale = ref(document.documentElement.lang || 'fr')
 
 const switchLanguage = async (locale: any) => {
   await fetch(`/lang/${locale}`);
+  localeStore.setLocale(locale)
+  document.cookie = `locale=${locale};path=/;SameSite=Lax`;
   window.dispatchEvent(new CustomEvent('locale-changed', { detail: { locale } }));
   window.location.reload();
 }
