@@ -29,10 +29,10 @@ class HomepageController extends Controller
         // Renvoi de toutes les données à la vue Inertia
         return Inertia::render('Homepage', [
             'user' => $user,
-            'categories' => $categories,
-            'projects' => $projects,
-            'experiences' => $experiences,
-            'courses' => $courses,
+            // 'categories' => $categories,
+            // 'projects' => $projects,
+            // 'experiences' => $experiences,
+            // 'courses' => $courses,
             'locale' => request()->cookie('locale', 'fr'),
         ]);
     }
