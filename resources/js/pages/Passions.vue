@@ -1,10 +1,18 @@
 <template>
-  <LanguageSwitcher />
-  <div>Passions Page</div>
-  <div v-for="passion in passions" :key="passion.id" class="mb-6">
-    <h2 class="text-xl font-bold mb-2">{{ passion.name[locale] }}</h2>
-    <p v-html="passion.description[locale]" class="mb-2"/>
-    <img v-if="passion.image_url" :src="passion.image_url" :alt="passion.name" class="w-full h-auto rounded" />
+  <div class="flex flex-col gap-12 items-center justify-center">
+    <div
+      v-for="passion in passions"
+      :key="passion.id"
+      class="w-1/2 border border-white rounded-md p-8 flex items-start gap-6"
+    >
+      <img v-if="passion.image_url" :src="passion.image_url" :alt="passion.name" class="w-1/4 aspect-auto h-auto rounded" />
+      <div>
+        <h2 class="text-3xl font-bold mb-2">
+          {{ passion.name[locale] }}
+        </h2>
+        <p v-html="passion.description[locale]" class="mb-2"/>
+      </div>
+    </div>
   </div>
 </template>
 
