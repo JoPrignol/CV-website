@@ -34,8 +34,11 @@ class SkillResource extends Resource
             Select::make('level')
                 ->options([
                     1 => 'Débutant',
-                    2 => 'Intermédiaire',
-                    3 => 'Avancé',
+                    2 => 'Débutant-Intermédiaire',
+                    3 => 'Intermédiaire',
+                    4 => 'Intermédiaire-Avancé',
+                    5 => 'Avancé',
+                    6 => 'Expert',
                 ])
                 ->required(),
             Select::make('skill_category_id')

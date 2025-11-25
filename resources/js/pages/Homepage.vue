@@ -9,14 +9,28 @@
         v-if="user.profile_pic_url"
         :src="user.profile_pic_url"
         alt="Joanny Prignol"
-        class="w-48 mb-4 rounded-full aspect-square"
+        class="w-58 mb-4 rounded-full aspect-square"
       />
       <h1 class="text-5xl font-bold mb-4">{{ user.first_name }} {{ user.last_name }}</h1>
       <p class="mb-2 text-3xl">{{ user.position[locale] }}</p>
       <p class="mb-2 w-3/4 text-center" v-html="user.bio[locale]" />
-      <div class="mb-4 flex">
-        <a v-if="user.linkedin_url" :href="user.linkedin_url" target="_blank" class="text-blue-500 mr-4"><i class="fa-brands fa-linkedin fa-xl" style="color: #ffffff;"></i></a>
-        <a v-if="user.github_url" :href="user.github_url" target="_blank" class="text-blue-500"><i class="fa-brands fa-github fa-xl" style="color: #ffffff;"></i></a>
+      <div class="mb-4 mt-4 flex gap-2">
+        <a
+          v-if="user.linkedin_url"
+          :href="user.linkedin_url"
+          target="_blank"
+          class="text-blue-500 mr-4"
+        >
+          <i class="fa-brands fa-linkedin fa-2xl" style="color: #ffffff;"/>
+        </a>
+        <a
+          v-if="user.github_url"
+          :href="user.github_url"
+          target="_blank"
+          class="text-blue-500"
+        >
+          <i class="fa-brands fa-github fa-2xl" style="color: #ffffff;"/>
+        </a>
       </div>
     </div>
     <div class="w-fit flex items-center justify-center flex-grow">
@@ -57,6 +71,7 @@ const props = defineProps<{
 
 const sectionsConfig = [
   { path: '/experiences', label: { fr: 'Expériences', en: 'Experiences', de: 'Berufserfahrung' } },
+  { path: '/skills',      label: { fr: 'Compétences', en: 'Skills',       de: 'Fähigkeiten'    } },
   { path: '/courses',     label: { fr: 'Formation',   en: 'Education',    de: 'Ausbildung'     } },
   { path: '/projects',    label: { fr: 'Projets',     en: 'Projects',     de: 'Projekte'       } },
   { path: '/passions',    label: { fr: 'Passions',    en: 'Passions',     de: 'Hobbys'        } },
