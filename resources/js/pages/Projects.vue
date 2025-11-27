@@ -151,31 +151,12 @@
 </script>
 
 <style scoped>
-.text-moving-rainbow {
-  color: white;
-  background: linear-gradient(90deg, #00C0FF 0%, #FFCF00 49%, #FC4F4F 80%, #00C0FF 100%);
-  background-clip: text;
-  -webkit-background-clip: text;
-}
-
-.text-moving-rainbow:hover {
-  color: transparent;
-  transition: 500ms ease;
-  animation:slidebg 10s linear infinite;
-}
-
-@keyframes slidebg {
-  to {
-    background-position:20vw;
+  .bg-custom-gradient {
+    background: linear-gradient(90deg, #FC4F4F 25%, #FFCF00 80%, #bbff00 100%);
   }
-}
 
-.bg-custom-gradient {
-  background: linear-gradient(90deg, #FC4F4F 25%, #FFCF00 80%, #bbff00 100%);
-}
-
-.bg-custom-gradient:hover {
-  scale: 1.02;
-  transition: 200ms ease-in-out;
-}
+  .bg-custom-gradient:hover {
+    scale: 1.02;
+    transition: 200ms ease-in-out;
+  }
 </style>

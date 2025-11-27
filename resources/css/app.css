@@ -179,3 +179,38 @@
         @apply bg-background text-foreground;
     }
 }
+
+
+/* Animation au hover des liens */
+
+.text-moving-rainbow, .text-moving-rainbow-slow {
+  color: white;
+  background: linear-gradient(90deg, #00C0FF 0%, #FFCF00 49%, #FC4F4F 80%, #00C0FF 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
+.text-moving-rainbow:hover {
+  color: transparent;
+  transition: 500ms ease;
+  animation:slidebg 10s linear infinite;
+}
+
+.text-moving-rainbow-slow:hover {
+  color: transparent;
+  transition: 500ms ease;
+  animation:slidebg 35s linear infinite;
+}
+
+@keyframes slidebg {
+  to {
+    background-position:20vw;
+  }
+}
+
+.icon-gradient {
+  display: inline-block;
+  line-height: 1;
+  background-size: 200%;
+  background-position: 0 0;
+}

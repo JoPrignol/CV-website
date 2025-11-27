@@ -2,10 +2,10 @@
   <div class="w-full flex items-center px-4 py-4" :class="isHomePage ? 'justify-end' : 'justify-between'">
     <a
       v-if="!isHomePage"
-      class="text-2xl font-bold"
+      class="text-2xl font-bold reverse-text-moving-rainbow"
       :href="isProjectsPage && hasTagParam ? '/projects' : '/'"
     >
-      <i class="fa-solid fa-arrow-left" style="color: #ffffff;" />
+      <i class="fa-solid fa-arrow-left" />
       {{isProjectsPage && hasTagParam ? localBackToProjects : localHome}}
     </a>
     <LanguageSwitcher />
@@ -55,3 +55,24 @@ const localBackToProjects = computed(() => {
 });
 
 </script>
+
+<style scoped>
+  .reverse-text-moving-rainbow {
+    color: white;
+    background: linear-gradient(90deg, #00C0FF 0%, #FFCF00 49%, #FC4F4F 80%, #00C0FF 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+  }
+
+  .reverse-text-moving-rainbow:hover {
+    color: transparent;
+    transition: 500ms ease;
+    animation:reverseSlidebg 10s linear infinite;
+  }
+
+  @keyframes reverseSlidebg {
+  to {
+    background-position:-20vw;
+  }
+}
+</style>
