@@ -2,7 +2,7 @@
   <div class="w-full flex items-center px-4 py-4" :class="isHomePage ? 'justify-end' : 'justify-between'">
     <a
       v-if="!isHomePage"
-      class="text-xl font-bold"
+      class="text-2xl font-bold"
       :href="isProjectsPage && hasTagParam ? '/projects' : '/'"
     >
       <i class="fa-solid fa-arrow-left" style="color: #ffffff;" />

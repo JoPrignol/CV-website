@@ -5,7 +5,7 @@
       :key="l"
       @click="switchLanguage(l)"
       :class="[
-        'px-3 py-1 font-bold border rounded-md border-black',
+        'px-3 py-1 text-lg font-bold border-2 rounded-md border-black',
         currentLocale === l ? 'bg-white text-black' : 'bg-none text-white hover:border-white duration-150 ease-in-out'
       ]"
     >

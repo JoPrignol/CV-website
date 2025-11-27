@@ -11,9 +11,9 @@
         alt="Joanny Prignol"
         class="w-58 mb-4 rounded-full aspect-square"
       />
-      <h1 class="text-5xl font-bold mb-4">{{ user.first_name }} {{ user.last_name }}</h1>
-      <p class="mb-2 text-3xl">{{ user.position[locale] }}</p>
-      <p class="mb-2 w-3/4 text-center" v-html="user.bio[locale]" />
+      <h1 class="text-5xl font-bold mb-2">{{ user.first_name }} {{ user.last_name }}</h1>
+      <p class="mb-4 text-3xl">{{ user.position[locale] }}</p>
+      <p class="mb-2 w-3/4 text-center text-base" v-html="user.bio[locale]" />
       <div class="mb-4 mt-4 flex gap-2">
         <a
           v-if="user.linkedin_url"

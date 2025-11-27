@@ -2,7 +2,7 @@
   <div class="flex flex-col gap-12 items-center justify-center">
     <div
       v-for="course in courses" :key="course.id"
-      class="w-1/2 border border-white rounded-md p-8"
+      class="w-1/2 border-2 border-white rounded-md p-8"
     >
       <div class="flex flex-row gap-4">
         <a
@@ -47,7 +47,7 @@
       <p
         v-if="course.description"
         v-html="course.description[locale]"
-        class="mt-4 text-justify"
+        class="mt-4 text-justify text-base"
       />
 
     </div>
