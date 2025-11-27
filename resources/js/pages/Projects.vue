@@ -3,14 +3,14 @@
     <div
       v-for="project in filteredProjects"
       :key="project.id"
-      class="w-1/2 border border-white rounded-md p-8"
+      class="w-1/2 border-2 border-white rounded-md p-8"
     >
       <div v-if="project.tags.length" class="mb-1 w-full flex justify-end">
         <a
           v-for="tag in project.tags"
           :key="tag.id"
           :href="`?tag=${tag.id}`"
-          class="inline-block text-sm px-2 py-1 rounded-full mr-2 duration-150 ease-in-out font-bold"
+          class="inline-block text-sm px-3 py-1 rounded-full mr-2 duration-150 ease-in-out font-bold"
           :class="activeTag === tag.id ? 'text-black bg-custom-gradient border-none' : 'border text-black bg-white hover:bg-black hover:text-white'"
           @click.prevent="onTagClick(tag.id)"
         >
@@ -27,7 +27,7 @@
       <p
         v-if="project.description"
         v-html="project.description[locale]"
-        class="mt-4"
+        class="mt-4 text-base"
       />
       <a
         v-if="project.url"

@@ -8,14 +8,14 @@
       <h2 class="text-3xl font-bold">
         {{ category.name[locale] }}
       </h2>
-      <hr class="mb-12 mt-2 border"/>
-      <ul class="grid grid-cols-3 gap-16">
+      <!-- <hr class="mb-12 mt-2 border"/> -->
+      <ul class="grid grid-cols-3 gap-16 border-2 rounded px-4 py-10 mt-4">
         <li
           v-for="skill in category.skills"
           :key="skill.id"
           class="ml-4 flex flex-col"
         >
-          <p class="text-xl font-black mb-2">
+          <p class="text-xl mb-2">
             {{ skill.name[locale] }}
           </p>
           <div

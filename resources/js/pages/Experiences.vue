@@ -2,7 +2,7 @@
   <div class="flex flex-col gap-12 items-center justify-center">
     <div
       v-for="exp in experiences" :key="exp.id"
-      class="w-1/2 border border-white rounded-md p-8"
+      class="w-1/2 border-2 border-white rounded-md p-8"
     >
       <div class="flex flex-row gap-4">
         <a
@@ -38,13 +38,18 @@
             <span v-if="exp.end_date">{{ formatDate(exp.start_date) }} - {{ formatDate(exp.end_date) }}</span>
             <span v-else>{{fromWordByLocale[locale]}} {{ formatDate(exp.start_date) }}</span>
           </p>
-          <p v-if="exp.location">{{atWordByLocale[locale]}} {{ exp.location[locale] }}</p>
+          <p
+            v-if="exp.location"
+            class="text-base"
+          >
+            {{atWordByLocale[locale]}} {{ exp.location[locale] }}
+          </p>
         </div>
       </div>
 
       <p
         v-html="exp.description[locale]"
-        class="mt-4 text-justify"
+        class="mt-4 text-justify text-base"
       />
 
     </div>
