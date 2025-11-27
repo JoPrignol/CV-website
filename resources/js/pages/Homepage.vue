@@ -9,27 +9,27 @@
         v-if="user.profile_pic_url"
         :src="user.profile_pic_url"
         alt="Joanny Prignol"
-        class="w-58 mb-4 rounded-full aspect-square"
+        class="w-66 mb-4 rounded-full aspect-square"
       />
       <h1 class="text-5xl font-bold mb-2">{{ user.first_name }} {{ user.last_name }}</h1>
       <p class="mb-4 text-3xl">{{ user.position[locale] }}</p>
       <p class="mb-2 w-3/4 text-center text-base" v-html="user.bio[locale]" />
-      <div class="mb-4 mt-4 flex gap-2">
+      <div class="mb-4 mt-2 flex gap-2 text-3xl">
         <a
           v-if="user.linkedin_url"
           :href="user.linkedin_url"
           target="_blank"
-          class="text-blue-500 mr-4"
+          class="mr-4 text-moving-rainbow-slow"
         >
-          <i class="fa-brands fa-linkedin fa-2xl" style="color: #ffffff;"/>
+          <i class="fa-brands fa-linkedin icon-gradient"/>
         </a>
         <a
           v-if="user.github_url"
           :href="user.github_url"
           target="_blank"
-          class="text-blue-500"
+          class="text-moving-rainbow-slow"
         >
-          <i class="fa-brands fa-github fa-2xl" style="color: #ffffff;"/>
+          <i class="fa-brands fa-github icon-gradient"/>
         </a>
       </div>
     </div>
@@ -89,20 +89,14 @@ const sections = computed(() =>
 </script>
 
 <style scoped>
-.section-item {
-  @apply flex items-center;
-  text-transform: uppercase;
-}
+  .section-item {
+    @apply flex items-center;
+    text-transform: uppercase;
+  }
 
-.section-line {
-  @apply w-full h-[1px];
-  margin-right: 0.5rem;
-  background-color: white;
-  /* background: linear-gradient(
-    to left,
-    #FFFFFF,
-    #c5c5c5 90%,
-    #000000 100%
-  ); */
-}
+  .section-line {
+    @apply w-full h-[1px];
+    margin-right: 0.5rem;
+    background-color: white;
+  }
 </style>
