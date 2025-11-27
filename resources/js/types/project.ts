@@ -2,7 +2,7 @@ import { Tag } from "./tag";
 
 export interface Project {
     id: number;
-    title: string;
+    name: string;
     description: string | null;
     url: string | null;
     main_image: string;

@@ -1,18 +1,21 @@
 <template>
   <div class="flex flex-col gap-12 items-center justify-center">
     <div
-      v-for="project in projects"
+      v-for="project in filteredProjects"
       :key="project.id"
       class="w-1/2 border border-white rounded-md p-8"
     >
       <div v-if="project.tags.length" class="mb-1 w-full flex justify-end">
-        <button
+        <a
           v-for="tag in project.tags"
           :key="tag.id"
-          class="inline-block font-medium text-sm px-2 py-1 rounded-full border mr-2 text-black bg-white hover:bg-black hover:text-white duration-150 ease-in-out"
+          :href="`?tag=${tag.id}`"
+          class="inline-block text-sm px-2 py-1 rounded-full mr-2 duration-150 ease-in-out font-bold"
+          :class="activeTag === tag.id ? 'text-black bg-custom-gradient border-none' : 'border text-black bg-white hover:bg-black hover:text-white'"
+          @click.prevent="onTagClick(tag.id)"
         >
           {{ tag.name[locale] }}
-        </button>
+        </a>
       </div>
 
       <h2
@@ -48,7 +51,7 @@
           <Slide v-if="project.main_image_url">
             <img
               :src="project.main_image_url"
-              :alt="project.title"
+              :alt="project.name"
               class="w-full h-fit object-cover rounded-md"
             />
           </Slide>
@@ -60,7 +63,7 @@
           >
             <img
               :src="image"
-              :alt="`${project.title} image ${index + 1}`"
+              :alt="`${project.name} image ${index + 1}`"
               class="w-full h-fit object-cover rounded-md"
             />
           </Slide>
@@ -82,7 +85,10 @@
   import { Project } from '@/types/project';
 
   import 'vue3-carousel/carousel.css'
-  import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
+  import { Carousel, Slide } from 'vue3-carousel'
+  import { ref } from 'vue';
+  import { computed } from 'vue';
+  import { router } from '@inertiajs/vue3';
 
   const carouselConfig = {
     itemsToShow: 1,
@@ -94,8 +100,10 @@
   const props = defineProps<{
     projects: Project[];
     locale: string;
+    initialActiveTag: string | number | null;
   }>();
-  let projectLink = setProjectLinkLanguage(props.locale);
+
+  const projectLink = setProjectLinkLanguage(props.locale);
 
   function setProjectLinkLanguage(locale: string): string {
     switch (locale) {
@@ -109,6 +117,43 @@
         return 'Learn more';
     }
   }
+
+  const activeTag = ref<any>(
+    props.initialActiveTag ? Number(props.initialActiveTag) : null
+  );
+
+  function onTagClick(tagId: any) {
+    const currentUrl = window.location.pathname
+    let newQueryString = {}
+
+    // Si l’utilisateur clique sur le même tag, le filtre est retiré
+    if (activeTag.value == tagId) {
+      activeTag.value = null
+    } else {
+      newQueryString = { tag: tagId }
+      activeTag.value = tagId
+    }
+
+    // Mise à jour des données et de l'utl grâce à router.get()
+    router.get(
+      currentUrl, // L'url de base sans les paramètres
+      newQueryString, // Les paramètres
+      {
+        preserveScroll: true,
+        preserveState: true,
+        replace: true,
+      }
+    )
+  }
+
+  const filteredProjects = computed(() => {
+    if (!activeTag.value) return props.projects
+
+    return props.projects.filter(project =>
+      project.tags.some(tag => tag.id == activeTag.value)
+    )
+  })
+
 </script>
 
 <style scoped>
@@ -129,5 +174,16 @@
   to {
     background-position:20vw;
   }
+}
+
+.bg-custom-gradient {
+  background: linear-gradient(90deg, #FC4F4F 25%, #FFCF00 80%, #bbff00 100%);
+}
+
+.bg-custom-gradient:hover {
+  /* background: none;
+  border: 1px solid white; */
+  scale: 1.02;
+  transition: 200ms ease-in-out;
 }
 </style>

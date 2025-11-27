@@ -3,10 +3,10 @@
     <a
       v-if="!isHomePage"
       class="text-xl font-bold"
-      href="/"
+      :href="isProjectsPage && hasTagParam ? '/projects' : '/'"
     >
       <i class="fa-solid fa-arrow-left" style="color: #ffffff;" />
-      {{localHome}}
+      {{isProjectsPage && hasTagParam ? localBackToProjects : localHome}}
     </a>
     <LanguageSwitcher />
   </div>
@@ -25,10 +25,33 @@ const props = defineProps<{
 }>();
 
 const page = usePage();
+
 const isHomePage = computed(() => page.url === '/');
+const isProjectsPage = computed(() => page.url.startsWith('/projects'));
 
 const localHome = computed(() => {
   return localeStore.locale === 'fr' ? 'ACCUEIL' : 'HOME';
+});
+
+const urlParams = computed(() => {
+  const queryString = page.url.split('?')[1] || '';
+  return new URLSearchParams(queryString);
+});
+
+const hasTagParam = computed(() => {
+  return urlParams.value.has('tag');
+});
+
+const localBackToProjects = computed(() => {
+  switch (localeStore.locale) {
+    case 'fr':
+      return 'TOUS LES PROJETS';
+    case 'de':
+      return 'ALLE PROJEKTE';
+    case 'en':
+    default:
+      return 'ALL PROJECTS';
+  }
 });
 
 </script>
