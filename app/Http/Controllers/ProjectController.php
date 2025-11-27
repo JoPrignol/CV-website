@@ -5,11 +5,15 @@ namespace App\Http\Controllers;
 use App\Models\Project;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Http\Request;
 
 class ProjectController extends Controller
 {
-  public function index(){
+  public function index(Request $request){
     $projects = Project::with('tags')->get();
+
+    // 1. Récupère l'ID du tag depuis l'URL (si présent)
+    $activeTagId = $request->query('tag');
 
     $projects->each(function ($project) {
         if ($project->main_image) {
@@ -29,6 +33,7 @@ class ProjectController extends Controller
     return Inertia::render('Projects', [
       'projects' => $projects,
       'locale' => request()->cookie('locale', 'fr'),
+      'initialActiveTag' => $activeTagId ?? null,
     ]);
   }
 }
