@@ -67,12 +67,6 @@
               class="w-full h-fit object-cover rounded-md"
             />
           </Slide>
-
-          <!-- Navigation et pagination -->
-          <!-- <template #addons>
-            <Navigation />
-            <Pagination />
-          </template> -->
         </Carousel>
       </div>
 
@@ -181,8 +175,6 @@
 }
 
 .bg-custom-gradient:hover {
-  /* background: none;
-  border: 1px solid white; */
   scale: 1.02;
   transition: 200ms ease-in-out;
 }
