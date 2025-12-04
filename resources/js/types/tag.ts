@@ -1,5 +1,5 @@
 export interface Tag {
     id: number;
-    name: string;
+    name: { [key: string]: string };
     spotlight: boolean;
   }

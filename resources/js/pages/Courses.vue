@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col gap-12 items-center justify-center">
+  <div class="flex flex-col gap-12 items-center justify-center mb-20">
     <div
       v-for="course in courses" :key="course.id"
       class="w-1/2 border-2 border-white rounded-md p-8"

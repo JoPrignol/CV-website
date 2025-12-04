@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col gap-12 items-center justify-center">
+  <div class="flex flex-col gap-12 items-center justify-center mb-20">
     <div
       v-for="passion in passions"
       :key="passion.id"

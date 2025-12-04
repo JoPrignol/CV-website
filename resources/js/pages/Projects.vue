@@ -1,5 +1,20 @@
 <template>
-  <div class="flex flex-col gap-12 items-center justify-center">
+  <div class="flex flex-col gap-12 items-center justify-center mb-20">
+    <div v-if="sortedTags.length" class="w-1/2 flex gap-4 flex-wrap mb-6 mt-4">
+      <span class="text-2xl font-bold self-center w-fit">
+        Tags :
+      </span>
+      <a
+        v-for="tag in sortedTags"
+        :key="tag.id"
+        :href="`?tag=${tag.id}`"
+        class="inline-block h-8 text-sm px-3 py-1 rounded-full duration-150 ease-in-out font-bold"
+        :class="activeTag === tag.id ? 'text-black bg-custom-gradient border-none' : 'border text-black bg-white hover:bg-black hover:text-white'"
+        @click.prevent="onTagClick(tag.id)"
+      >
+        {{ tag.name[locale] }}
+      </a>
+    </div>
     <div
       v-for="project in filteredProjects"
       :key="project.id"
@@ -77,6 +92,7 @@
 
 <script setup lang="ts">
   import { Project } from '@/types/project';
+  import { Tag } from '@/types/tag';
 
   import 'vue3-carousel/carousel.css'
   import { Carousel, Slide } from 'vue3-carousel'
@@ -93,9 +109,18 @@
 
   const props = defineProps<{
     projects: Project[];
+    tags: Tag[];
     locale: string;
     initialActiveTag: string | number | null;
   }>();
+
+  const sortedTags = computed(() => {
+    return [...props.tags].sort((a, b) => {
+      if (a.spotlight && !b.spotlight) return -1;
+      if (!a.spotlight && b.spotlight) return 1;
+      return 0;
+    });
+  });
 
   const projectLink = setProjectLinkLanguage(props.locale);
 
@@ -141,12 +166,21 @@
   }
 
   const filteredProjects = computed(() => {
-    if (!activeTag.value) return props.projects
-
-    return props.projects.filter(project =>
-      project.tags.some(tag => tag.id == activeTag.value)
-    )
-  })
+    let projects = props.projects;
+    if (activeTag.value) {
+      projects = projects.filter(project =>
+        project.tags.some(tag => tag.id == activeTag.value)
+      );
+    }
+    // Afficher les projets avec un tag spotlight en premier
+    return [...projects].sort((a, b) => {
+      const aHasSpotlight = a.tags.some(tag => tag.spotlight);
+      const bHasSpotlight = b.tags.some(tag => tag.spotlight);
+      if (aHasSpotlight && !bHasSpotlight) return -1;
+      if (!aHasSpotlight && bHasSpotlight) return 1;
+      return 0;
+    });
+  });
 
 </script>
 
