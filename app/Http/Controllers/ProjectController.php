@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Project;
+use App\Models\Tag;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
@@ -30,8 +31,12 @@ class ProjectController extends Controller
             $project->secondary_images_urls = [];
         }
     });
+
+    $tags = Tag::all();
+
     return Inertia::render('Projects', [
       'projects' => $projects,
+      'tags' => $tags,
       'locale' => request()->cookie('locale', 'fr'),
       'initialActiveTag' => $activeTagId ?? null,
     ]);
