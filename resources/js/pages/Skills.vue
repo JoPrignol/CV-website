@@ -3,13 +3,13 @@
     <div
       v-for="category in categories"
       :key="category.id"
-      class="mb-8 w-1/2 p-8"
+      class="mb-8 lg:w-1/2 lg:p-8 w-full p-4"
     >
-      <h2 class="text-4xl font-bold">
+      <h2 class="text-4xl font-bold lg:mb-0 mb-4">
         {{ category.name[locale] }}
       </h2>
       <!-- <hr class="mb-12 mt-2 border"/> -->
-      <ul class="grid grid-cols-3 gap-16 border-2 border-foreground rounded px-6 py-10 mt-2 bg-background">
+      <ul class="grid lg:grid-cols-3 grid-cols-1 gap-16 border-2 border-foreground rounded px-6 py-10 mt-2 bg-background">
         <li
           v-for="skill in category.skills"
           :key="skill.id"
