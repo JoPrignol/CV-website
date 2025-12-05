@@ -29,6 +29,9 @@ const page = usePage();
 const isHomePage = computed(() => page.url === '/');
 const isProjectsPage = computed(() => page.url.startsWith('/projects'));
 
+const isMobile = window.matchMedia("(max-width: 768px)").matches;
+
+
 const localHome = computed(() => {
   return localeStore.locale === 'fr' ? 'ACCUEIL' : 'HOME';
 });
@@ -45,12 +48,25 @@ const hasTagParam = computed(() => {
 const localBackToProjects = computed(() => {
   switch (localeStore.locale) {
     case 'fr':
-      return 'TOUS LES PROJETS';
+      if (isMobile){
+        return 'PROJETS';
+      } else {
+        return 'TOUS LES PROJETS';
+      }
     case 'de':
-      return 'ALLE PROJEKTE';
+      if (isMobile){
+        return 'PROJEKTE';
+      } else {
+        return 'ALLE PROJEKTE';
+      }
     case 'en':
+      if (isMobile){
+        return 'PROJECTS';
+      } else {
+        return 'ALL PROJECTS';
+      }
     default:
-      return 'ALL PROJECTS';
+      return 'PROJECTS';
   }
 });
 
