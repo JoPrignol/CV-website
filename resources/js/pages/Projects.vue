@@ -1,6 +1,6 @@
 <template>
-  <div class="flex flex-col gap-12 items-center justify-center mb-20">
-    <div v-if="sortedTags.length" class="w-1/2 flex gap-4 flex-wrap mb-6 mt-4">
+  <div class="flex flex-col gap-12 items-center justify-center mb-20 px-4 lg:px-0">
+    <div v-if="sortedTags.length" class="lg:w-1/2 w-full items-center justify-center flex gap-4 flex-wrap mb-6 mt-8 lg:mt-4">
       <span class="text-2xl font-bold self-center w-fit">
         Tags :
       </span>
@@ -18,14 +18,14 @@
     <div
       v-for="project in filteredProjects"
       :key="project.id"
-      class="w-1/2 border-2 border-foreground rounded-md p-8 bg-background"
+      class="lg:w-1/2 w-full border-2 border-foreground rounded-md px-4 py-6 lg:px-8 lg:py-8 bg-background"
     >
-      <div v-if="project.tags.length" class="mb-1 w-full flex justify-end">
+      <div v-if="project.tags.length" class="mb-1 w-full flex justify-end flex-wrap">
         <a
           v-for="tag in project.tags"
           :key="tag.id"
           :href="`?tag=${tag.id}`"
-          class="inline-block text-sm px-3 py-1 rounded-full mr-2 duration-150 ease-in-out font-bold"
+          class="inline-block lg:text-sm text-xs lg:mb-0 mb-4 px-3 py-1 rounded-full mr-2 duration-150 ease-in-out font-bold"
           :class="activeTag === tag.id ? 'text-black bg-custom-gradient border-none' : 'border border-foreground text-black bg-foreground hover:bg-black hover:text-foreground'"
           @click.prevent="onTagClick(tag.id)"
         >
@@ -35,14 +35,14 @@
 
       <h2
         v-if="project.name"
-        class="text-3xl font-bold"
+        class="text-3xl text-center lg:text-left font-bold"
       >
         {{ project.name[locale] }}
       </h2>
       <p
         v-if="project.description"
         v-html="project.description[locale]"
-        class="mt-4 text-base"
+        class="mt-4 text-base lg:text-left text-justify"
       />
       <a
         v-if="project.url"
@@ -50,8 +50,8 @@
         target="_blank"
         class="text-xl mt-4 flex gap-2 items-center w-fit text-moving-rainbow mb-4 font-black"
       >
-        <i class="fa-solid fa-angles-right text-foreground" />
-        <span class="text-foreground">
+        <i class="fa-solid fa-angles-right" />
+        <span>
           {{projectLink}}
         </span>
       </a>

@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col gap-12 items-center justify-center mb-20">
+  <div class="flex flex-col gap-12 items-center justify-center mb-20 lg:px-0 px-4 lg:mt-0 mt-10">
     <img
       v-if="userContact.profile_pic_url"
       :src="userContact.profile_pic_url"
@@ -8,12 +8,12 @@
     />
     <div class="flex flex-col items-center justify-center">
 
-      <h2 class="text-4xl font-bold mb-8">{{ contactText[locale] }}</h2>
+      <h2 class="text-4xl font-bold mb-8 text-center">{{ contactText[locale] }}</h2>
 
       <a
         target="_blank"
         :href="`mailto:${userContact.email}`"
-        class="text-xl font-black mb-4 text-moving-rainbow"
+        class="lg:text-xl text-lg font-black mb-4 text-moving-rainbow"
       >
         <i class="fa-solid fa-envelope fa-xl mr-2"></i>
         {{userContact.email}}
@@ -22,7 +22,7 @@
       <a
         target="_blank"
         :href="`tel:${userContact.phone_number}`"
-        class="text-xl font-black mb-6 text-moving-rainbow"
+        class="lg:text-xl text-lg font-black mb-6 text-moving-rainbow"
       >
         <i class="fa-solid fa-phone fa-md mr-2"></i>
         {{userContact.phone_number}}

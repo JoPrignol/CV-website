@@ -1,9 +1,9 @@
 <template>
-  <div class="flex flex-row justify-between items-center align-middle w-full h-[90vh]">
+  <div class="flex flex-col lg:flex-row justify-between items-center align-middle w-full h-[90vh] lg:mt-0 mt-10">
     <div
       v-for="user in [props.user]"
       :key="user.id"
-      class="flex flex-col w-1/2 items-center justify-center"
+      class="flex flex-col w-full lg:w-1/2 items-center justify-center"
     >
       <img
         v-if="user.profile_pic_url"
@@ -11,9 +11,9 @@
         alt="Joanny Prignol"
         class="w-66 mb-4 rounded-full aspect-square"
       />
-      <h1 class="text-5xl font-bold mb-2">{{ user.first_name }} {{ user.last_name }}</h1>
-      <p class="mb-4 text-3xl">{{ user.position[locale] }}</p>
-      <p class="mb-2 w-3/4 text-center text-base" v-html="user.bio[locale]" />
+      <h1 class="text-5xl font-bold mb-2 text-center">{{ user.first_name }} {{ user.last_name }}</h1>
+      <p class="mb-4 text-3xl text-center">{{ user.position[locale] }}</p>
+      <p class="mb-2 w-full px-2 lg:px-0 lg:w-3/4 text-center text-base" v-html="user.bio[locale]" />
       <div class="mb-4 mt-2 flex gap-2 text-3xl">
         <a
           v-if="user.linkedin_url"
@@ -33,8 +33,8 @@
         </a>
       </div>
     </div>
-    <div class="w-fit flex items-center justify-center flex-grow">
-      <ul class="text-2xl font-semibold space-y-4 w-full pr-24">
+    <div class="w-full lg:w-fit flex items-center justify-center flex-grow">
+      <ul class="text-2xl font-semibold space-y-4 w-full pr-6 mt-8 lg:mt-0 lg:pr-24">
         <li v-for="(section, index) in sections" :key="index" class="section-item">
           <div class="section-line bg-foreground"/>
           <Link
