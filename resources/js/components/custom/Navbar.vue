@@ -2,7 +2,7 @@
   <div class="w-full flex items-center px-4 py-4" :class="isHomePage ? 'justify-end' : 'justify-between'">
     <a
       v-if="!isHomePage"
-      class="text-2xl font-bold reverse-text-moving-rainbow"
+      class="text-2xl font-bold reverse-text-moving-rainbow text-foreground"
       :href="isProjectsPage && hasTagParam ? '/projects' : '/'"
     >
       <i class="fa-solid fa-arrow-left" />
@@ -58,7 +58,7 @@ const localBackToProjects = computed(() => {
 
 <style scoped>
   .reverse-text-moving-rainbow {
-    color: white;
+    /* color: white; */
     background: linear-gradient(90deg, #00C0FF 0%, #FFCF00 49%, #FC4F4F 80%, #00C0FF 100%);
     background-clip: text;
     -webkit-background-clip: text;

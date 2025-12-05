@@ -2,7 +2,7 @@
   <div class="flex flex-col gap-12 items-center justify-center mb-20">
     <div
       v-for="exp in experiences" :key="exp.id"
-      class="w-1/2 border-2 border-white rounded-md p-8"
+      class="w-1/2 border-2 border-foreground rounded-md p-8 bg-background"
     >
       <div class="flex flex-row gap-4">
         <a

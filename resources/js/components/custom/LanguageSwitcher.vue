@@ -5,8 +5,8 @@
       :key="l"
       @click="switchLanguage(l)"
       :class="[
-        'px-3 py-1 text-lg font-bold border-2 rounded-md border-black',
-        currentLocale === l ? 'bg-white text-black' : 'bg-none text-white hover:border-white duration-150 ease-in-out'
+        'px-3 py-1 text-lg font-bold border-2 rounded-md border-background',
+        currentLocale === l ? 'bg-foreground text-background' : 'bg-none text-foreground hover:border-foreground duration-150 ease-in-out'
       ]"
     >
       {{ l.toUpperCase() }}
