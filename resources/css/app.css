@@ -99,8 +99,8 @@
 } */
 
 :root {
-    --background: hsl(0, 0%, 0%);
-    --foreground: hsl(0, 0%, 100%);
+    --background: hsl(288, 11%, 9%);
+    --foreground: hsl(51, 21%, 88%);
     --card: hsl(0 0% 100%);
     --card-foreground: hsl(0 0% 3.9%);
     --popover: hsl(0 0% 100%);
@@ -184,7 +184,7 @@
 /* Animation au hover des liens */
 
 .text-moving-rainbow, .text-moving-rainbow-slow {
-  color: white;
+  color: var(--foreground);
   background: linear-gradient(90deg, #00C0FF 0%, #FFCF00 49%, #FC4F4F 80%, #00C0FF 100%);
   background-clip: text;
   -webkit-background-clip: text;

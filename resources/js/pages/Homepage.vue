@@ -36,7 +36,7 @@
     <div class="w-fit flex items-center justify-center flex-grow">
       <ul class="text-2xl font-semibold space-y-4 w-full pr-24">
         <li v-for="(section, index) in sections" :key="index" class="section-item">
-          <div class="section-line"/>
+          <div class="section-line bg-foreground"/>
           <Link
             :href="section.path"
             class="hover:mr-[1rem] duration-300 ease-in-out uppercase"
@@ -97,6 +97,5 @@ const sections = computed(() =>
   .section-line {
     @apply w-full h-[1px];
     margin-right: 0.5rem;
-    background-color: white;
   }
 </style>

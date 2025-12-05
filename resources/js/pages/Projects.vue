@@ -9,7 +9,7 @@
         :key="tag.id"
         :href="`?tag=${tag.id}`"
         class="inline-block h-8 text-sm px-3 py-1 rounded-full duration-150 ease-in-out font-bold"
-        :class="activeTag === tag.id ? 'text-black bg-custom-gradient border-none' : 'border text-black bg-white hover:bg-black hover:text-white'"
+        :class="activeTag === tag.id ? 'text-black bg-custom-gradient border-none' : 'border border-foreground text-black bg-foreground hover:bg-black hover:text-foreground'"
         @click.prevent="onTagClick(tag.id)"
       >
         {{ tag.name[locale] }}
@@ -18,7 +18,7 @@
     <div
       v-for="project in filteredProjects"
       :key="project.id"
-      class="w-1/2 border-2 border-white rounded-md p-8"
+      class="w-1/2 border-2 border-foreground rounded-md p-8 bg-background"
     >
       <div v-if="project.tags.length" class="mb-1 w-full flex justify-end">
         <a
@@ -26,7 +26,7 @@
           :key="tag.id"
           :href="`?tag=${tag.id}`"
           class="inline-block text-sm px-3 py-1 rounded-full mr-2 duration-150 ease-in-out font-bold"
-          :class="activeTag === tag.id ? 'text-black bg-custom-gradient border-none' : 'border text-black bg-white hover:bg-black hover:text-white'"
+          :class="activeTag === tag.id ? 'text-black bg-custom-gradient border-none' : 'border border-foreground text-black bg-foreground hover:bg-black hover:text-foreground'"
           @click.prevent="onTagClick(tag.id)"
         >
           {{ tag.name[locale] }}
@@ -50,8 +50,10 @@
         target="_blank"
         class="text-xl mt-4 flex gap-2 items-center w-fit text-moving-rainbow mb-4 font-black"
       >
-        <i class="fa-solid fa-angles-right" />
-        <span>{{projectLink}}</span>
+        <i class="fa-solid fa-angles-right text-foreground" />
+        <span class="text-foreground">
+          {{projectLink}}
+        </span>
       </a>
 
       <div class="my-2">
