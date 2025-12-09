@@ -1,4 +1,5 @@
 <template>
+  <ShapeAnimationHP />
   <div class="flex flex-col lg:flex-row justify-between items-center align-middle w-full h-[90vh] lg:mt-0 mt-10">
     <div
       v-for="user in [props.user]"
@@ -59,6 +60,8 @@ import { Skill } from '@/types/skill';
 import Navbar from '@/components/custom/Navbar.vue';
 import { watch, computed } from 'vue';
 import { Link } from '@inertiajs/vue3';
+import ShapeAnimation from '@/components/custom/ShapeAnimation.vue';
+import ShapeAnimationHP from '@/components/custom/ShapeAnimationHP.vue';
 
 const props = defineProps<{
   user: User;

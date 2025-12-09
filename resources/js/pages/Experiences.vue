@@ -1,4 +1,6 @@
 <template>
+  <ShapeAnimation />
+  <ShapeAnimation />
   <div class="flex flex-col gap-12 items-center justify-center mb-20 lg:px-0 px-4">
     <div
       v-for="exp in experiences" :key="exp.id"
@@ -86,6 +88,7 @@
 import { defineProps } from 'vue';
 import { Experience } from '@/types/experience';
 import dayjs from 'dayjs';
+import ShapeAnimation from '@/components/custom/ShapeAnimation.vue';
 
 
 const props = defineProps<{
