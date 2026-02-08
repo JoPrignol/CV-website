@@ -1,4 +1,5 @@
 <template>
+  <DualCurvesAnimation />
   <div class="flex flex-col gap-12 items-center justify-center mb-20 px-4 lg:px-0">
     <div
       v-for="course in courses" :key="course.id"
@@ -84,6 +85,7 @@
   import { Course } from '@/types/course';
   import dayjs from 'dayjs';
   import { Link } from '@inertiajs/vue3';
+  import DualCurvesAnimation from '@/components/custom/DualCurvesAnimation.vue';
 
 
   const props = defineProps<{

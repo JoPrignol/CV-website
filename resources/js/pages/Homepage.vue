@@ -1,4 +1,5 @@
 <template>
+  <ShapeAnimationHP />
   <div class="flex flex-col lg:flex-row justify-between items-center align-middle w-full h-[90vh] lg:mt-0 mt-10">
     <div
       v-for="user in [props.user]"
@@ -34,7 +35,7 @@
       </div>
     </div>
     <div class="w-full lg:w-fit flex items-center justify-center flex-grow">
-      <ul class="text-2xl font-semibold space-y-4 w-full pr-6 mt-8 lg:mt-0 lg:pr-24">
+      <ul class="text-2xl font-semibold space-y-4 w-full pr-6 mt-8 mb-8 lg:mt-0 lg:pr-24">
         <li v-for="(section, index) in sections" :key="index" class="section-item">
           <div class="section-line bg-foreground"/>
           <Link
@@ -59,6 +60,8 @@ import { Skill } from '@/types/skill';
 import Navbar from '@/components/custom/Navbar.vue';
 import { watch, computed } from 'vue';
 import { Link } from '@inertiajs/vue3';
+import ShapeAnimation from '@/components/custom/ShapeAnimation.vue';
+import ShapeAnimationHP from '@/components/custom/ShapeAnimationHP.vue';
 
 const props = defineProps<{
   user: User;

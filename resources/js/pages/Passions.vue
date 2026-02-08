@@ -1,4 +1,5 @@
 <template>
+  <SquareShapeAnimation />
   <div class="flex flex-col gap-12 items-center justify-center mb-20 mx-4 lg:mx-0">
     <div
       v-for="passion in passions"
@@ -20,6 +21,7 @@
 import { defineProps } from 'vue';
 import { Passion } from '@/types/passion';
 import LanguageSwitcher from '@/components/custom/LanguageSwitcher.vue';
+import SquareShapeAnimation from '@/components/custom/SquareShapeAnimation.vue';
 
 const props = defineProps<{
   passions: Passion[];
