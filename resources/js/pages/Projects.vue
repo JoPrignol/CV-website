@@ -60,10 +60,9 @@
       <div class="my-2">
         <Carousel
           v-bind="carouselConfig"
-          :autoplay="3000"
+          :autoplay="2500"
           :pause-autoplay-on-hover="true"
           slide-effect="fade"
-          :mouseWheel="true"
         >
           <!-- Slide pour l'image principale -->
           <Slide v-if="project.main_image_url">
@@ -107,7 +106,7 @@ import CurvesAnimation from '@/components/custom/CurvesAnimation.vue';
   const carouselConfig = {
     itemsToShow: 1,
     wrapAround: true, // Boucle infinie
-    transition: 3000, // Durée de la transition en ms
+    transition: 2500, // Durée de la transition en ms
     snapAlign: 'start', // Alignement des slides
   }
 
