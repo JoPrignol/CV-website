@@ -1,4 +1,5 @@
 <template>
+  <ShapeAnimation />
   <div class="flex flex-col items-center justify-center mb-20">
     <div
       v-for="category in categories"
@@ -37,6 +38,7 @@
 <script setup lang="ts">
 import { defineProps } from 'vue';
 import { Category } from '@/types/category';
+import ShapeAnimation from '@/components/custom/ShapeAnimation.vue';
 
 const props = defineProps<{
   categories: Category[];

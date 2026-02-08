@@ -1,4 +1,5 @@
 <template>
+  <CurvesAnimation />
   <div class="flex flex-col gap-12 items-center justify-center mb-20 px-4 lg:px-0">
     <div v-if="sortedTags.length" class="lg:w-1/2 w-full items-center justify-center flex gap-4 flex-wrap mb-6 mt-8 lg:mt-4">
       <span class="text-2xl font-bold self-center w-fit">
@@ -101,6 +102,7 @@
   import { ref } from 'vue';
   import { computed } from 'vue';
   import { router } from '@inertiajs/vue3';
+import CurvesAnimation from '@/components/custom/CurvesAnimation.vue';
 
   const carouselConfig = {
     itemsToShow: 1,

@@ -5,7 +5,7 @@
       :key="l"
       @click="switchLanguage(l)"
       :class="[
-        'px-3 py-1 text-lg font-bold border-2 rounded-md border-background',
+        'px-3 py-1 text-lg font-bold border-2 rounded-md border-transparent',
         currentLocale === l ? 'bg-foreground text-background' : 'bg-none text-foreground hover:border-foreground duration-150 ease-in-out'
       ]"
     >
@@ -21,6 +21,7 @@ import { useLocaleStore } from '@/stores/locale';
 const localeStore = useLocaleStore();
 
 const locales = ['fr', 'en', 'de']
+
 const currentLocale = ref(document.documentElement.lang || 'fr')
 
 const switchLanguage = async (locale: any) => {

@@ -35,7 +35,7 @@
       </div>
     </div>
     <div class="w-full lg:w-fit flex items-center justify-center flex-grow">
-      <ul class="text-2xl font-semibold space-y-4 w-full pr-6 mt-8 lg:mt-0 lg:pr-24">
+      <ul class="text-2xl font-semibold space-y-4 w-full pr-6 mt-8 mb-8 lg:mt-0 lg:pr-24">
         <li v-for="(section, index) in sections" :key="index" class="section-item">
           <div class="section-line bg-foreground"/>
           <Link
